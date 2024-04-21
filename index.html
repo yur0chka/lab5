@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обчислення виразів</title>
+</head>
+<body>
+    <h1>Обчислення виразів m та v</h1>
+    <label for="h">Введіть значення h:</label>
+    <input type="number" id="h" name="h"><br><br>
+    <label for="p">Введіть значення p:</label>
+    <input type="number" id="p" name="p"><br><br>
+
+    <button onclick="calculate()">Обчислити</button>
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            var h = parseFloat(document.getElementById('h').value);
+            var p = parseFloat(document.getElementById('p').value);
+            
+            var m = p + (h - 7 * Math.sin(p + 2 * Math.pow(h, 2))) / (3 * p - 4 * h);
+            var v = Math.pow(Math.cos(p + 1), 2) - 4 * (h + p);
+            
+            document.getElementById('result').innerHTML = 'Значення виразу m: ' + m + '<br>' +
+                                                            'Значення виразу v: ' + v;
+        }
+    </script>
+</body>
+</html>
